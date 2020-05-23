@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conduit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet"  th:href="@{/css/style.css}">
+    <link rel="stylesheet"  th:href="@{/css/style.css}">
+
+</head>
+<body>
+
+<!-- <div th:fragment="user"> -->
+
+    <header class="container" th:fragment="user"></header>
+
+<!-- Start here -->
+
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Conduit</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="white"><a href="/">Home</a></li>
+            <li class="white"><a href="newArticle"><span class="glyphicon glyphicon-edit"></span> New Post</a></li>
+            <li><a href="#setting"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+            <li><a href="#username">kuldeep</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- End Here -->
+
+</body>
+</html>

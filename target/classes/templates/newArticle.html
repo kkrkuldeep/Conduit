@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Post</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div th:replace="header :: header"></div>
+
+<div class="container">
+    <div class="col-md-10 offset-md-1 col-xs-12">
+        <form action="#" th:action="@{/addArticle}" th:object="${post}" method="post">
+            <fieldset>
+                <input type="hidden" th:field="*{id}">
+                <fieldset class="form-group">
+                    <input type="text" class="form-control form-control-lg" th:field="*{title}"
+                           placeholder="Article Title">
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" th:field="*{excerpt}"
+                           placeholder="What's this article about?">
+                </fieldset>
+                <fieldset class="form-group">
+                    <textarea class="form-control" th:field="*{content}" rows="8"
+                              placeholder="Write your article (in markdown)">
+                    </textarea>
+                </fieldset>
+                <fieldset class="form-group">
+                    <input type="text" class="form-control" th:field="*{tags}" name="tag" placeholder="Enter tags">
+                    <div class="tag-list">
+
+                    </div>
+                </fieldset>
+                <button class="btn btn-lg pull-xs-right btn-success" type="submit" name="actionPerformed"
+                        value="publish">Publish
+                    Article
+                </button>
+                <button type="submit" class="btn btn-lg btn-info" name="actionPerformed" value="draft">Save as
+                    Draft
+                </button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+<div class="footer">
+    <a href="#">Fork on Github</a>
+</div>
+
+</body>
+</html>
+

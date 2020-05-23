@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conduit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet"  th:href="@{/css/style.css}">
+    <link rel="stylesheet"  th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<div th:fragment="header">
+
+<!-- Start here -->
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Conduit</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="white"><a href="/">Home</a></li>
+                <li class="white"><a href="/draft">Draft</a></li>
+                <li class="white"><a href="newArticle"><span class="glyphicon glyphicon-edit"></span> New Post</a></li>
+                <li><a href="#setting"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+                <li><a href="#username"><span sec:authentication="name"></span></a></li>
+                <li>
+                    <form class="navbar-form navbar-right" th:action="@{/logout}" method="POST">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success" value="search">Logout</button>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right" th:action="@{/search(title)}">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-success" value="search">Submit</button>
+            </form>
+        </div>
+    </nav>
+</div>
+<!-- End Here -->
+
+</body>
+</html>

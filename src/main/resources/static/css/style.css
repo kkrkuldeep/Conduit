@@ -1,0 +1,142 @@
+body{
+    font-family: source sans pro,sans-serif
+}
+
+.navbar-nav > li > a {
+    color: grey;
+}
+
+.navbar-brand{
+    color: green; 
+    font-weight: bold;
+}
+
+.navbar{
+    margin-bottom: 0px;
+}
+
+.form-control{
+    padding-top: 10px;
+}
+
+.failed{
+    color: red;
+}
+
+.jumbotron{
+    background-color: green;
+}
+
+.popular{
+    padding: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: whitesmoke;
+}
+
+.tag{
+    background-color: rgb(209, 209, 209);
+    border-radius: 15px;
+    display: inline-block;
+    padding: 7px;
+    margin-right: 7px;
+}
+
+
+.article-preview{
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 1.5rem 0;
+}
+
+.article-meta {
+    display: block;
+    position: relative;
+    font-weight: 300;
+}
+
+.article-meta .info {
+    margin: 0 1.5rem 2.5em 2.3rem;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1rem;
+}
+
+.article-meta .info .author {
+    padding-bottom: 10px;
+    display: block;
+    font-weight: 500!important;
+}
+
+.article-meta .info .date {
+    color: #bbb;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    display: block;
+}
+
+.pull-xs-right {
+    float: right!important;
+}
+
+.preview-link {
+    color: inherit!important;
+    text-decoration: none !important;
+}
+
+.article-preview .preview-link ul {
+    float: right;
+    max-width: 50%;
+    vertical-align: top;
+}
+
+ul.tag-list {
+    padding-left: 0!important;
+    display: inline-block;
+    list-style: none!important;
+}
+
+.last-item > p{
+    padding-bottom: 550px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(#485563, #29323c);
+    text-align: center;
+    padding: 15px;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    display: block;
+ }
+
+ .footer > a {
+     color: white;
+ }
+
+ .head-bar{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #333;
+ }
+
+ ul.tag-list {
+    padding-left: 0!important;
+    display: inline-block;
+    list-style: none!important;
+}
+
+ .create-space{
+     padding-top: 30px;
+     padding-bottom: 10px;
+     margin-bottom: 30px;
+     color: inherit;
+ }
+
+.card-footer > button{
+    float: right;
+    margin-top: 10px;
+}

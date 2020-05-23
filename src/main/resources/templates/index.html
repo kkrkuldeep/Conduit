@@ -1,0 +1,102 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div th:replace="header :: header"></div>
+
+<div class="jumbotron">
+    <h1 class="display-4" style="text-align: center; color: white;">Conduit</h1>
+    <h3 style="text-align: center; color: white;">A place to share your knowledge.</h3>
+</div>
+
+
+<div class="container">
+
+    <hr>
+    <div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+        Logged in user: <span sec:authentication="name"></span> <br><br>
+        Roles: <span sec:authentication="principal.authorities"></span>
+    </div>
+    <hr>
+
+    <h4>Global Feed</h4>
+
+    <div th:if="${postList == null || postList.isEmpty()}">
+        <h3>Make your first article... :)</h3>
+    </div>
+
+    <div class="row col-md-8">
+
+        <!-- Start Loop Here -->
+
+        <div class="col-md-8" th:if="${!postList.isEmpty()}" th:each="post:${postList}">
+            <div class="article-preview">
+                <div class="article-meta">
+
+                    <a href="#"><span class="glyphicon glyphicon-user fa-4x"></span></a>
+
+                    <div class="info">
+                        <a href="#" th:text="${post.getAuthor()}"></a>
+                        <span class="date" th:text="${post.getPublish_at()}"></span>
+                    </div>
+
+                    <div class="pull-xs-right">
+                        <button class="btn btn-outline btn-success">
+                            <span class="glyphicon glyphicon-heart small"> 0</span>
+                        </button>
+                    </div>
+
+                    <a th:href="@{/publish(postId = ${post.getId()})}" class="preview-link">
+                        <h1 th:text="${post.getTitle()}"></h1>
+                        <p th:text="${post.getContent()}"></p>
+                        <span>Read more</span>
+                        <ul th:each="tag:${post.getTagList()}">
+                            <li class="tag" th:text="${tag.getName()}"></li>
+                        </ul>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="popular">
+            <h5>Popular Tags</h5>
+            <hr>
+            <div style="display: inline-block;" th:if="${!tagList.isEmpty()}" th:each="tag:${tagList}">
+                <a th:href="@{/filter(tagId = ${tag.getId()})}">
+                    <p class="tag" th:text="${tag.getName()}"></p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <ul class="nav nav-pills">
+        <li class="nav-item"
+            th:each="pageNumber : ${#numbers.sequence(0,(postList.totalPages)-1)}">
+            <a th:href="@{/(page=${pageNumber})}" th:text="${pageNumber}" class="nav-link"></a>
+        </li>
+    </ul>
+</div>
+
+<div class="create-space">
+
+</div>
+
+<div class="footer">
+    <a>Fork on Github</a>
+</div>
+
+</body>
+</html>
